@@ -1,0 +1,23 @@
+﻿using Sitecore.ContentSearch.SearchTypes;
+using Sitecore.Pipelines.InsertRenderings.Processors;
+using Sitecore.Web.UI.WebControls;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace events.tac.local.Models
+{
+    public class EventDetails:SearchResultItem
+    {
+        public String ContentHeading { get; set; }
+        public String ContentIntro { get; set; }
+        public DateTime EventStartDate { get; set; }
+        
+        public HtmlString EventImage { get {
+                return new HtmlString(FieldRenderer.Render(GetItem(), "EventImage", "DisableWebEditing=true&mw=150"));
+                    }
+        }
+
+}
+}
